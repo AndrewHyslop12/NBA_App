@@ -37,9 +37,7 @@ class HomeView(View):
                'url': f"/static/player_imgs/{player.player.split()[0]}_{player.player.split()[1]}.png",
                'searches': player.search_count
            }
-        
-        import ipdb; ipdb.set_trace()
-               
+                       
         if 'search' in request.GET:
             
             player_name = strip_tags(request.GET['player_name'])

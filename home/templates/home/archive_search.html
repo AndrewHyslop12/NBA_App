@@ -1,0 +1,38 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class = "col-sm-12">
+        <table class="table" style="width: 100px;">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Activity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in players %}
+                    <tr>
+                        <td>{{ player.full_name }}</td>
+                        <td>{{ player.is_active }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="pagination" style="justify-content: center; margin-bottom: 1%">   
+        {% for p in paginator.page_range %}            
+            <li class="page-item"><a id = '' class="page-link" href='?page={{ p }}'>{{ p }}</a></li>
+        {% endfor %}
+    </div>
+
+    <style>
+        table th {
+            width: auto !important;
+        }
+    </style>
+{% endblock %}

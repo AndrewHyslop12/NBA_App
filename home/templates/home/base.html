@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <title>NBA App</title>
+    <meta name="viewport" content="user-scalable=no,width=device-width, initial-scale=1"/>
+    <meta name = "mobile-web-app-capable" content="yes">
+	<meta name = "apple-mobile-web-app-capable" content="yes">
+    
+    <link rel="apple-touch-icon" sizes = "300x300" href = "{% static 'favicon/favicon.ico' %}">
+    <link id = "favicon" rel="shortcut icon" sizes = "300x300" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+
+    <nav id = "nav" class="navbar navbar-expand-lg navbar-dark"> 
+        <a class="navbar-brand" href="{% url 'home:home' %}" id = "head" style="color: white;">NBA Stats<img class = "icon_img" src = "{% static 'favicon/favicon.ico' %}">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style= "color: white;"></span>
+        </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class = "nav-item">
+                        <a class="nav-link" href="{% url 'home:inactive_search' %}" style = "color: white;" role="button" aria-haspopup="true" aria-expanded="false" disabled>
+                            Archive Search </i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class = "navbar-nav ml-auto">
+                    <li class = "nav-item">
+                        <a class="nav-link" href="" style = "color: white;" role="button" aria-haspopup="true" aria-expanded="false" disabled>
+                            Login <i class = "fa fa-sign-in"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class = "navbar-nav">
+                    <li class = "nav-item">
+                        <a class="nav-link" href="" style = "color: white;" role="button" aria-haspopup="true" aria-expanded="false" disabled>
+                            Sign Up <i class = "fa fa-plus"></i>
+                        </a>      
+                    </li>
+                </ul>
+            </div>
+    </nav> 
+    {% block content %}
+        <body></body>
+    {% endblock %}
+
+    <style>
+        #nav{
+            background-color: #428bca;
+        }
+        .icon_img{
+            height: 30px;
+            width: 30px;
+        }
+    </style>
+</html>

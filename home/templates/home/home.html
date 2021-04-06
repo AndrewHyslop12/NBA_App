@@ -2,124 +2,126 @@
 {% load static %}
 {% block content %}
 
-    <link rel = "stylesheet" type="text/css" href = "{% static 'styles/home/home_style.css' %}">
+<link rel = "stylesheet" type="text/css" href = "{% static 'styles/home/home_style.css' %}">
 
-    <script>AOS.init()</script>
+<script>AOS.init()</script>
 
-    <div class = "main-block" id = "image">
-        <form class = "" action = "" method="GET">
-            <h1 class = "title">Finding Players just got <span id = "easier">fun</span>.</h1><br>
-            <div class = "input-group">
-                {{ form.player_name }}
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit" name="search">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-            </div><br>
-        </form>
-    </div>
-    
-    <div class="row align-items-end">
-        <div class="col-sm-6">
-            <img src = "{% static 'player_imgs/LeBron_James.png' %}" id = "main_img_1" height="100" width="100">
-        </div>
-        <div class = "col-sm-6" id = "info_1" data-aos="slide-up">
-            <h1 id = "fader_title_1">
-                Stats from all the <span id = "easier">teams</span>
-            </h1>
-            <p id = "sub-text">
-                Get up-to-date stats from all 30 teams around the league
-            </p>
-        </div>
-    </div>
-
-    <div class="row align-items-center">
-        <div class = "col-sm-6" id = "info_1" data-aos="slide-up">
-            <h1 id = "fader_title_1">
-                Find the <span id = "easier">perfect</span> recipe
-            </h1>
-            <p id = "sub-text">
-                With <span id = "easier">Foodify</span> you'll be able to search 
-                in a variety of ways to find the best recipe for you.<br><br>
-                
-                You can also <span id = "easier">save</span> your <span id = "easier">favourites</span> to use
-                time and time again
-            </p>
-        </div>
-
-        <div class="col-sm-6" data-aos="fade-left">
-            <img src = "{% static 'player_imgs/Carmelo_Anthony.png' %}" id = "main_img_1">
-        </div>
-    </div>
-
-    <br>
-    
-    <div class="most_searched" data-aos="slide-up">
-        <h1 class = "title" style="color: black; text-align: center;">Most searched players</h1>
-        <div class="card-deck">
-            {% for player, details in players.items %}
-                <div class="card" id = "recipe">
-                    <a id = "recipe_id" href="">
-                        <img id = "img" class="card-img-top" src="{{ details.url }}" alt="Card image cap" height=300>
-                    </a>
-                    <div class="card-body" id = "player_details">
-                        <h5 class="display-2" style="font-size: 1.3rem;">{{ player }}</h5>
-                        <p class="display-2" style="font-size: 1.3rem;">{{ details.searches }} searches</p>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-
-    <br>
-
-
-    <div class = "col-sm-12 align-items-center" id = "divider">
-        <div class="text" data-aos="slide-up">
-            <h2 class="small_title">Cooking is more than cooking...</h2>
-            <br><br>
-            <h2 class = "small_title">With {{ recipes_count }} recipes you'll be sure to find your passion</h2>
-            <br>
-        </div>
-    </div>    
-
-    <div class = "bottom-info">
-        <div class="row align-items-center">
-            <div class = "col-sm-6" id = "dev-details">
-                <h3 class = "small_title" style="color: black; text-align: center;">
-                    NBA Stats <img id = "bottom_img" src = "{% static 'favicon/favicon.ico'%}">
-                </h3>
-                <p>Developed and Owned by Andrew Hyslop</p>
-                <p>University of Strathclyde - 2020</p>
+<div class = "main-block" id = "image">
+    <form class = "" action = "" method="GET">
+        <h1 class = "title">Finding Players just got <span id = "easier">fun</span>.</h1><br>
+        <div class = "input-group">
+            {{ form.player_name }}
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit" name="search">
+                    <i class="fa fa-search"></i>
+                </button>
             </div>
+        </div><br>
+    </form>
+    {% include 'home/messages.html' %}
+    <br>
+    <br>
+</div>
 
-        </div>
+<div class="row align-items-end">
+    <div class="col-sm-6">
+        <img src = "{% static 'player_imgs/LeBron_James.png' %}" id = "main_img_1">
+    </div>
+    <div class = "col-sm-6" id = "info_1" data-aos="slide-up">
+        <h1 id = "fader_title_1">
+            Stats from all the <span id = "easier">teams</span>
+        </h1>
+        <p id = "sub-text">
+            Get up-to-date stats from all <span id = "easier">30</span> teams around the league
+        </p>
+    </div>
+</div>
+
+<div class="row align-items-center">
+    <div class = "col-sm-6" id = "info_1" data-aos="slide-up">
+        <h1 id = "fader_title_1">
+            Find the <span id = "easier">perfect</span> player
+        </h1>
+        <p id = "sub-text">
+            With <span id = "easier">NBA Stats</span> you'll be able to search 
+            for all your favourite players.<br><br>
+            
+            You can also <span id = "easier">build lineups</span> and save them
+        </p>
     </div>
 
-    <script>
-        const div=document.getElementById("image");
-        let images = ["{% static 'lebron.jpeg' %}","{% static 'melo.jpeg' %}", "{% static 'kobe.jpeg' %}"]
-        let counter = 0;
+    <div class="col-sm-6" data-aos="fade-left">
+        <img src = "{% static 'player_imgs/Carmelo_Anthony.png' %}" id = "main_img_1">
+    </div>
+</div>
+
+<br>
+
+<div class="most_searched" data-aos="slide-up">
+    <h1 class = "title" style="color: black; text-align: center;">Most searched players in the NBA</h1>
+    <div class="card-deck">
+        {% for player, details in players.items %}
+            <div class="card" id = "recipe">
+                <a id = "recipe_id" href="">
+                    <img class="card-img-top" src="{{ details.url }}" alt="Card image cap" height="250" width="100">
+                </a>
+                <div class="card-body" id = "player_details">
+                    <h5 class="display-2" style="font-size: 1.3rem;">{{ player }}</h5>
+                    <p class="display-2" style="font-size: 1.3rem;">{{ details.searches }} searches</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<br>
 
 
-        function volgendefoto() {
-            counter++;
-            if (counter > 3) {
-                counter = 0
-            }
-                        
-            var string = "url(" + images[counter] + ")";
+<div class = "col-sm-12 align-items-center" id = "divider">
+    <div class="text" data-aos="slide-up">
+        <h2 class="small_title">With all of the NBA players and teams</h2>
+        <br><br>
+        <h2 class = "small_title">You'll be sure to find a stat that you love</h2>
+        <br>
+    </div>
+</div>    
 
-            div.style.backgroundImage=string;
+<div class = "bottom-info">
+    <div class="row align-items-center">
+        <div class = "col-sm-6" id = "dev-details">
+            <h3 class = "small_title" style="color: black; text-align: center;">
+                NBA Stats <img id = "bottom_img" src = "{% static 'favicon/favicon.ico'%}">
+            </h3>
+            <p>Developed and Owned by Andrew Hyslop</p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const div=document.getElementById("image");
+    let images = ["{% static 'lebron.jpeg' %}","{% static 'melo.jpeg' %}", "{% static 'kobe.jpeg' %}"]
+    let counter = 0;
+
+
+    function volgendefoto() {
+        counter++;
+        if (counter > 2) {
+            counter = 0
         }
+                    
+        var string = "url(" + images[counter] + ")";
 
-        setInterval(volgendefoto, 3000);
-    </script>    
-    <style>
-        .main-block{
-            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),url("{% static 'lebron.jpeg' %}");
-            background-size: cover;
-        }   
-    </style>
+        div.style.backgroundImage=string;
+    }
+
+    setInterval(volgendefoto, 3000);
+</script>    
+<style>
+    .main-block{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),url("{% static 'lebron.jpeg' %}");
+        background-size: cover;
+        height: 400px;
+    }   
+</style>
 {% endblock %}

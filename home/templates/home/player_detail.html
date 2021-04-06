@@ -9,29 +9,59 @@
         <h1>{{ player.full_name }}</h1>
         <h3>{{ team }}</h3>
         <img src = "{{ url }}" id = "player_img">
-        <h3>PPG:
-            {% for k, v in player_season_stats.items %}
-                {% if k == 'ppg' %}
-                    {{ v }}
-                {% endif %}
-            {% endfor %}
+        <br>
+        {% if player_season_stats %}
+            <h5 id = "stats">PPG:
+                {% for k, v in player_season_stats.items %}
+                    {% if k == 'ppg' %}
+                        {{ v }}
+                    {% endif %}
+                {% endfor %}
 
-            APG:
-            {% for k, v in player_season_stats.items %}
-                {% if k == 'apg' %}
-                    {{ v }}
-                {% endif %}
-            {% endfor %}
+                APG:
+                {% for k, v in player_season_stats.items %}
+                    {% if k == 'apg' %}
+                        {{ v }}
+                    {% endif %}
+                {% endfor %}
 
-            RPG:
-            {% for k, v in player_season_stats.items %}
-                {% if k == 'rpg' %}
-                    {{ v }}
-                {% endif %}
-            {% endfor %}
-        </h3>
+                RPG:
+                {% for k, v in player_season_stats.items %}
+                    {% if k == 'rpg' %}
+                        {{ v }}
+                    {% endif %}
+                {% endfor %}
+            </h5>
+            
+            <div class = "btn-toolbar" id = "btns">
+                <button id = "detailed_stats" class = "btn btn-success">Detailed Stats</button>
+                &nbsp;
+                <button id = "add_player_to_lineup" class = "btn btn-success">Add {{ player.first_name }} to your lineup</button>              
+            </div>
+        {% else %}
+            <h3>Career Points:
+                {% for k, v in stats.items %}
+                    {% if k == 'ppg' %}
+                        {{ v }}
+                    {% endif %}
+                {% endfor %}
 
-        <button id = "add_player" class = "btn btn-warning">Add Player to lineup</button>
+                Career Assists:
+                {% for k, v in player_season_stats.items %}
+                    {% if k == 'apg' %}
+                        {{ v }}
+                    {% endif %}
+                {% endfor %}
+
+                Career Rebounds:
+                {% for k, v in player_season_stats.items %}
+                    {% if k == 'rpg' %}
+                        {{ v }}
+                    {% endif %}
+                {% endfor %}
+            </h3>
+        {% endif %}
+        
     </div>
 
 {% endblock %}

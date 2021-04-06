@@ -25,7 +25,7 @@ SECRET_KEY = 'b$&pblzg+&b(hml!19s9xqp_s@s67pu4b^s694g&72v1!6ip-c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'nba-stats-app-andrew-hyslop.herokuapp.com']
 
 
 # Application definition
